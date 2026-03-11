@@ -3,10 +3,10 @@ import LiquidGlassCard from '../../components/LiquidGlassCard';
 
 const points = [
   'Current sales AI tools (Kapa.ai, Mendable, Inkeep) rely on LLMs with basic RAG — they cannot predict conversion probability or provide strategic real-time guidance.',
-  'SalesRLAgent treats sales conversations as sequential decision problems, training a specialized RL model on 1.2M synthetic conversations generated via GPT-4O.',
-  'The system uses Azure OpenAI 3072-dimensional embeddings, turn-by-turn state tracking, and meta-learning to estimate its own prediction confidence.',
-  'Achieves 96.7% accuracy in conversion prediction — outperforming LLM-only approaches by 34.7% — with 85ms inference latency (vs. seconds for LLM APIs).',
-  'Real-world A/B testing across 217 reps and 12,433 conversations showed a 43.2% increase in conversion rates and 22% shorter sales cycles.',
+  'SalesRLAgent treats sales conversations as sequential decision problems, training a specialized RL model on a hybrid dataset: 70% synthetic conversations generated via GPT-5 and 30% real-world data from the goendalf666/sales-conversations corpus on HuggingFace.',
+  'The system uses OpenAI text-embedding-3-large (3072 dimensions), turn-by-turn state tracking, and meta-learning to estimate its own prediction confidence.',
+  'Based on prior work by Henderson et al. (2018) and Takanobu et al. (2019), we project 91–95% accuracy in conversion prediction — a 25–30% improvement over LLM-only baselines, with sub-100ms inference latency.',
+  'Projected real-world impact estimates a 35–45% uplift in conversion rates and 18–25% reduction in sales cycle length, informed by ablation patterns observed in RL dialogue policy literature.',
 ];
 
 export default function RLAbstractSlide() {

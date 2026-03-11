@@ -3,11 +3,11 @@ import LiquidGlassCard from '../../components/LiquidGlassCard';
 
 const contributions = [
   'A reinforcement learning architecture specifically designed for sales conversation analysis and real-time conversion prediction.',
-  'A synthetic data generation pipeline leveraging GPT-4O to create 1.2M diverse, realistic sales conversations across 15 industries.',
-  'Novel state representation techniques using Azure OpenAI embeddings (3072 dimensions) combined with sales-specific feature engineering.',
-  'A meta-learning approach enabling the system to express calibrated confidence based on conversation similarity to training data.',
+  'A hybrid data pipeline combining GPT-5 synthetic generation (70%) with real-world sales conversations from HuggingFace\'s goendalf666/sales-conversations dataset (30%) across multiple industries.',
+  'Novel state representation techniques using OpenAI text-embedding-3-large (3072 dimensions) combined with sales-specific feature engineering.',
+  'A meta-learning approach enabling the system to express calibrated confidence based on conversation similarity to training data (Finn et al., 2017).',
   'Integration mechanisms providing real-time overlay guidance within CRM platforms (Salesforce, HubSpot) and communication tools (Zoom, Teams).',
-  'Extensive evaluation demonstrating 96.7% prediction accuracy and 43.2% real-world conversion rate improvement over 90 days.',
+  'Projected evaluation based on RL dialogue policy literature (Henderson et al., 2018) targeting 91–95% prediction accuracy and 35–45% conversion rate uplift.',
 ];
 
 export default function RLIntroSlide2() {

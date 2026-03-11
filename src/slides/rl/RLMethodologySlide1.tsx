@@ -12,8 +12,8 @@ interface StepItem {
 const steps: StepItem[] = [
   {
     icon: Sparkles,
-    label: 'Synthetic Data Generation',
-    desc: '1.2M conversations generated via GPT-4O with carefully designed templates across 15 industries. Conversations range 3–27 turns with balanced conversion outcomes (44% positive / 56% negative).',
+    label: 'Hybrid Data Construction (70/30 Split)',
+    desc: '70% synthetic conversations generated via GPT-5 with designed templates across 15 industries (3–27 turns, balanced outcomes). 30% real-world data sourced from HuggingFace\'s goendalf666/sales-conversations corpus, restructured into turn-level pairs with conversion labels.',
   },
   {
     icon: FileText,
@@ -23,7 +23,7 @@ const steps: StepItem[] = [
   {
     icon: Layers,
     label: 'Embedding Generation',
-    desc: 'Azure OpenAI embedding model producing 3072-dimensional vectors that capture semantic relationships, with domain-specific feature engineering layered on top.',
+    desc: 'OpenAI text-embedding-3-large producing 3072-dimensional vectors via API, capturing deep semantic relationships with domain-specific feature engineering layered on top.',
   },
   {
     icon: Database,
@@ -33,7 +33,7 @@ const steps: StepItem[] = [
   {
     icon: Cpu,
     label: 'Training Infrastructure',
-    desc: 'Curriculum learning from simple to complex conversations, adversarial training with counter-examples, ensemble techniques, and specialized batch construction. Total training: ~6 hours on CPU.',
+    desc: 'Curriculum learning from simple to complex conversations, adversarial training with counter-examples, ensemble techniques, and specialized batch construction. Estimated training: ~6 hours on CPU.',
   },
 ];
 

@@ -8,7 +8,7 @@ const architecturePoints = [
   },
   {
     label: 'State Encoder',
-    desc: 'Processes Azure OpenAI 3072-dim embeddings combined with hand-crafted sales features (engagement signals, objection detection, technique identification).',
+    desc: 'Processes OpenAI text-embedding-3-large 3072-dim vectors combined with hand-crafted sales features (engagement signals, objection detection, technique identification).',
   },
   {
     label: 'Policy Network',

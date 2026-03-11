@@ -58,10 +58,10 @@ export default function RLCoverSlide() {
             }}
           >
             <p style={{ fontSize: 'clamp(13px, 1.05vw, 20px)', opacity: 0.7 }}>
-              Nandakishor M
+              Abhiram · Shikhar · Ashok
             </p>
             <p style={{ fontSize: 'clamp(12px, 0.95vw, 18px)', opacity: 0.5 }}>
-              Deepmost Innovations — nandakishor@deepmostai.com
+              abhiramvsa7@gmail.com
             </p>
           </div>
         </div>

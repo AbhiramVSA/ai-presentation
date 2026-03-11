@@ -33,11 +33,12 @@ const rightCol = [
     ],
   },
   {
-    category: 'Conversion Prediction & Sales AI',
+    category: 'Conversion Prediction, Data & Sales AI',
     items: [
       'Sakar, C. O. et al. "Real-time Prediction of Online Shoppers\' Purchasing Intention using MLP and LSTM." Neural Computing & Applications, 31(10), pp. 6893–6908, 2019.',
       'Brown, T. et al. "Language Models are Few-Shot Learners." NeurIPS 2020.',
       'Li, Y. et al. "Synthetic Data Generation with Large Language Models for Text Classification." EMNLP 2023.',
+      'goendalf666. "sales-conversations." HuggingFace Datasets. Available: huggingface.co/datasets/goendalf666/sales-conversations.',
     ],
   },
 ];
