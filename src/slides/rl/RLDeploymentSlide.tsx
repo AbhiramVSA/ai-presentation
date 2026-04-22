@@ -24,8 +24,8 @@ export default function RLDeploymentSlide() {
     <RLSlideFrame
       slideNumber="08"
       section="System and Training"
-      title="Architecture, notebook workflow, and deployment pattern"
-      subtitle="The repo now includes a reusable simulator and training module, a benchmark script, generated figures, and an A100-oriented notebook. The production pattern is RL for control, frontier LLM for realization."
+      title="Architecture, script workflow, and deployment pattern"
+      subtitle="The repo now includes a reusable simulator and training module, a benchmark script, generated figures, and A100-oriented training and inference scripts. The production pattern is RL for control, frontier LLM for realization."
       backgroundSrc="https://stream.mux.com/fHfa8VIbBdqZelLGg5thjsypZ101M01dbyIMLNDWQwlLA.m3u8"
       footerLabel="Architecture and deployment"
     >
@@ -44,7 +44,7 @@ export default function RLDeploymentSlide() {
           </RLPanel>
 
           <RLPanel padding="clamp(18px, 1.5vw, 28px)">
-            <Eyebrow>Notebook artifacts</Eyebrow>
+            <Eyebrow>Repository artifacts</Eyebrow>
             <BulletList
               compact
               items={[
@@ -57,8 +57,8 @@ export default function RLDeploymentSlide() {
                   curves
                 </span>,
                 <span>
-                  <strong>sales_rl_training_a100.ipynb</strong> scales the same workflow to a single A100 and includes
-                  optional API harnesses for frontier-model evaluation
+                  <strong>train_sales_rl_agent.py</strong> and <strong>use_sales_rl_agent.py</strong> provide the
+                  training, checkpoint loading, rollout simulation, and A100 execution path
                 </span>,
               ]}
             />
@@ -70,7 +70,7 @@ export default function RLDeploymentSlide() {
             <Eyebrow>A100 run path</Eyebrow>
             <div style={{ display: 'grid', gap: '0.8rem' }}>
               {[
-                'install CUDA PyTorch build, matplotlib, notebook dependencies',
+                'install CUDA PyTorch build plus runtime dependencies',
                 'set device = cuda and enlarge batch_envs / hidden_dim / total_updates',
                 'train scalar and distributional policies, save checkpoints and histories',
                 'generate figures and optional API-side comparisons for GPT-5, GPT-5.1, and Claude Sonnet 4.5',

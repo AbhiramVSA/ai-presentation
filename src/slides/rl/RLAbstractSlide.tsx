@@ -76,7 +76,7 @@ export default function RLAbstractSlide() {
             <div style={{ display: 'grid', gap: '0.7rem' }}>
               {[
                 'paper rewritten with full equations, architecture diagram, tables, and figures',
-                'A100-ready notebook included for training and checkpointing',
+                'A100-ready training and inference scripts included for checkpointing',
                 'benchmark artifacts generated from runnable local code',
               ].map((line) => (
                 <div key={line} style={{ fontSize: 'clamp(12px, 0.9vw, 16px)', opacity: 0.86, lineHeight: 1.45 }}>

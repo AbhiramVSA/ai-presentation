@@ -166,3 +166,40 @@ export function MiniTable({
     </table>
   );
 }
+
+export function MathBlock({
+  lines,
+  size = 'clamp(16px, 1.08vw, 22px)',
+  gap = '0.5rem',
+}: {
+  lines: ReactNode[];
+  size?: string;
+  gap?: string;
+}) {
+  return (
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap,
+        fontSize: size,
+        fontFamily: '"Cambria Math", "STIX Two Math", "Times New Roman", serif',
+        lineHeight: 1.5,
+        letterSpacing: '-0.01em',
+        opacity: 0.95,
+      }}
+    >
+      {lines.map((line, index) => (
+        <div
+          key={index}
+          style={{
+            minHeight: '1.2em',
+            whiteSpace: 'nowrap',
+          }}
+        >
+          {line}
+        </div>
+      ))}
+    </div>
+  );
+}

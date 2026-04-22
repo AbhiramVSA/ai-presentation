@@ -1,5 +1,5 @@
 import RLSlideFrame from './RLSlideFrame';
-import { BulletList, Eyebrow, RLPanel } from './RLPrimitives';
+import { BulletList, Eyebrow, MathBlock, RLPanel } from './RLPrimitives';
 
 export default function RLIntroSlide1() {
   return (
@@ -23,7 +23,7 @@ export default function RLIntroSlide1() {
                 lineHeight: 1.2,
               }}
             >
-              P = (S, O, A, P, R, Omega, gamma)
+              M = (S, O, A, P, R, Ω, γ)
             </div>
             <div style={{ marginTop: '1rem' }}>
               <BulletList
@@ -62,28 +62,30 @@ export default function RLIntroSlide1() {
 
         <RLPanel padding="clamp(18px, 1.5vw, 28px)">
           <Eyebrow>Reward geometry</Eyebrow>
-          <div
-            style={{
-              fontSize: 'clamp(16px, 1.2vw, 22px)',
-              fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Consolas, monospace',
-              lineHeight: 1.65,
-              whiteSpace: 'pre-wrap',
-              opacity: 0.92,
-            }}
-          >
-            {`r_t = lambda_I Delta I_t + lambda_T Delta T_t + lambda_S Delta S_t
-      - lambda_F F_t - lambda_O O_t
-      + 1[a_t = close] r_t^(close)`}
-          </div>
+          <MathBlock
+            size="clamp(17px, 1.12vw, 23px)"
+            lines={[
+              <>
+                r<sub>t</sub> = λ<sub>I</sub> ΔI<sub>t</sub> + λ<sub>T</sub> ΔT<sub>t</sub> + λ<sub>S</sub> ΔS<sub>t</sub>
+              </>,
+              <>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;− λ<sub>F</sub> F<sub>t</sub> − λ<sub>O</sub> O<sub>t</sub> − 𝟙[a<sub>t</sub> = close] Π<sub>t</sub>
+              </>,
+              <>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ 𝟙[a<sub>t</sub> = close] r<sup>(close)</sup>
+                <sub>t</sub>
+              </>,
+            ]}
+          />
 
           <div className="mt-5 grid grid-cols-2 gap-4">
             {[
-              ['Delta I_t', 'information coverage gained from the turn'],
-              ['Delta T_t', 'change in trust induced by the policy'],
-              ['Delta S_t', 'stage progression toward a legitimate close'],
+              ['ΔI_t', 'information coverage gained from the turn'],
+              ['ΔT_t', 'change in trust induced by the policy'],
+              ['ΔS_t', 'stage progression toward a legitimate close'],
               ['F_t, O_t', 'fatigue accumulation and objection escalation penalties'],
               ['r_t^(close)', 'terminal gain or loss at close time'],
-              ['Pi_t', 'premature-close penalty that blocks degenerate early closes'],
+              ['Π_t', 'premature-close penalty that blocks degenerate early closes'],
             ].map(([term, desc]) => (
               <div
                 key={term}

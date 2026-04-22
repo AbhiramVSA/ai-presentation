@@ -7,7 +7,7 @@ export default function RLCoverSlide() {
       slideNumber="01"
       section="Research Presentation"
       title="Risk-Sensitive Distributional Actor-Critic for Sales Dialogue Control"
-      subtitle="A mathematically grounded benchmark against frontier prompted controllers, with reproducible training artifacts and an A100-ready notebook."
+      subtitle="A mathematically grounded benchmark against frontier prompted controllers, with reproducible training artifacts and A100-ready training scripts."
       backgroundSrc="https://stream.mux.com/JNJEOYI6B3EffB9f5ZhpGbuxzc6gSyJcXaCBbCgZKRg.m3u8"
       footerLabel="Cover"
       titleWidth="82%"
@@ -44,7 +44,7 @@ export default function RLCoverSlide() {
           <div className="flex gap-6">
             <Metric value="POMDP" label="formal problem setup for latent buyer state and noisy observations" />
             <Metric value="31 Q" label="quantiles in the distributional critic used in the released benchmark" accent="#dbeafe" />
-            <Metric value="A100" label="notebook included for scalable training and checkpointing" accent="#fde68a" />
+            <Metric value="A100" label="training scripts included for scalable checkpoints and evaluation" accent="#fde68a" />
           </div>
         </RLPanel>
 

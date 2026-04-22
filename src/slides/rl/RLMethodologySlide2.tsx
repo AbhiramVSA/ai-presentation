@@ -1,5 +1,5 @@
 import RLSlideFrame from './RLSlideFrame';
-import { BulletList, Eyebrow, RLPanel } from './RLPrimitives';
+import { BulletList, Eyebrow, MathBlock, RLPanel } from './RLPrimitives';
 
 export default function RLMethodologySlide2() {
   return (
@@ -14,22 +14,22 @@ export default function RLMethodologySlide2() {
       <div className="grid h-full w-full grid-cols-[1.1fr_0.95fr] gap-5">
         <RLPanel padding="clamp(18px, 1.5vw, 28px)">
           <Eyebrow>Risk functionals</Eyebrow>
-          <div
-            style={{
-              fontSize: 'clamp(15px, 1.05vw, 20px)',
-              fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Consolas, monospace',
-              lineHeight: 1.74,
-              opacity: 0.94,
-            }}
-          >
-            {`q_bar_phi(b_t) = (1 / N) sum_i q_(phi,i)(b_t)
-
-CVaR_alpha(Z_phi^pi(b_t))
-  ~= (1 / K_alpha) sum_(i=1)^(K_alpha) q_(phi,i)(b_t)
-
-u_phi(b_t)
-  = sqrt( (1 / N) sum_i ( q_(phi,i)(b_t) - q_bar_phi(b_t) )^2 )`}
-          </div>
+          <MathBlock
+            size="clamp(15px, 1.02vw, 20px)"
+            lines={[
+              <>
+                q̄<sub>φ</sub>(b<sub>t</sub>) = (1 / N) Σ<sub>i</sub> q<sub>φ,i</sub>(b<sub>t</sub>)
+              </>,
+              <>
+                CVaR<sub>α</sub>(Z<sub>φ</sub>
+                <sup>π</sup>(b<sub>t</sub>)) ≈ (1 / K<sub>α</sub>) Σ<sub>i=1</sub>
+                <sup>K<sub>α</sub></sup> q<sub>φ,i</sub>(b<sub>t</sub>)
+              </>,
+              <>
+                u<sub>φ</sub>(b<sub>t</sub>) = √((1 / N) Σ<sub>i</sub> (q<sub>φ,i</sub>(b<sub>t</sub>) − q̄<sub>φ</sub>(b<sub>t</sub>))<sup>2</sup>)
+              </>,
+            ]}
+          />
 
           <div style={{ marginTop: '1rem' }}>
             <BulletList
@@ -52,20 +52,22 @@ u_phi(b_t)
         <div className="flex flex-col gap-5">
           <RLPanel padding="clamp(18px, 1.5vw, 28px)">
             <Eyebrow>Actor objective</Eyebrow>
-            <div
-              style={{
-                fontSize: 'clamp(14px, 1vw, 18px)',
-                fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Consolas, monospace',
-                lineHeight: 1.72,
-                opacity: 0.94,
-              }}
-            >
-              {`A_t^(risk) = ( z_hat_bar_t - q_bar_phi(b_t) )
-           - lambda_u u_phi(b_t)
-
-L_pi(theta) = - E_t [ log pi_theta(a_t | b_t) sg(A_t^(risk)) ]
-              - beta_H E_t [ H(pi_theta(. | b_t)) ]`}
-            </div>
+            <MathBlock
+              size="clamp(14px, 0.96vw, 18px)"
+              lines={[
+                <>
+                  A<sub>t</sub>
+                  <sup>risk</sup> = ( z̄<sub>t</sub> − q̄<sub>φ</sub>(b<sub>t</sub>) ) − λ<sub>u</sub> u<sub>φ</sub>(b<sub>t</sub>)
+                </>,
+                <>
+                  L<sub>π</sub>(θ) = − E<sub>t</sub>[ log π<sub>θ</sub>(a<sub>t</sub> | b<sub>t</sub>) sg(A<sub>t</sub>
+                  <sup>risk</sup>) ]
+                </>,
+                <>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;− β<sub>H</sub> E<sub>t</sub>[ H(π<sub>θ</sub>(· | b<sub>t</sub>)) ]
+                </>,
+              ]}
+            />
           </RLPanel>
 
           <RLPanel padding="clamp(18px, 1.5vw, 28px)">

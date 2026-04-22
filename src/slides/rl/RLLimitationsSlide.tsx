@@ -63,7 +63,7 @@ export default function RLLimitationsSlide() {
                 evaluation
               </span>,
               <span>
-                benchmark frontier models through the notebook harness on the exact same macro-action environment
+                benchmark frontier models through the shared script harness on the exact same macro-action environment
               </span>,
               <span>
                 test richer critics: ensembles, implicit quantile networks, and multimodal return models

@@ -1,5 +1,5 @@
 import RLSlideFrame from './RLSlideFrame';
-import { BulletList, Eyebrow, RLPanel } from './RLPrimitives';
+import { BulletList, Eyebrow, MathBlock, RLPanel } from './RLPrimitives';
 
 export default function RLMethodologySlide1() {
   return (
@@ -14,20 +14,23 @@ export default function RLMethodologySlide1() {
       <div className="grid h-full w-full grid-cols-[0.95fr_1.15fr] gap-5">
         <RLPanel padding="clamp(18px, 1.5vw, 28px)">
           <Eyebrow>Return distribution</Eyebrow>
-          <div
-            style={{
-              fontSize: 'clamp(17px, 1.24vw, 24px)',
-              fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Consolas, monospace',
-              lineHeight: 1.7,
-              opacity: 0.92,
-            }}
-          >
-            {`V^pi(b_t) = E[Z^pi(b_t)]
-
-Z^pi_phi(b_t) ~= { q_(phi,i)(b_t) }_(i=1)^N
-
-tau_i = (i - 1/2) / N`}
-          </div>
+          <MathBlock
+            size="clamp(18px, 1.18vw, 25px)"
+            lines={[
+              <>
+                V<sup>π</sup>(b<sub>t</sub>) = E[Z<sup>π</sup>(b<sub>t</sub>)]
+              </>,
+              <>
+                Z<sup>π</sup>
+                <sub>φ</sub>(b<sub>t</sub>) ≈ {'{'}q<sub>φ,i</sub>(b<sub>t</sub>){'}'}
+                <sub>i=1</sub>
+                <sup>N</sup>
+              </>,
+              <>
+                τ<sub>i</sub> = (i − 1/2) / N
+              </>,
+            ]}
+          />
 
           <div style={{ marginTop: '1.1rem' }}>
             <BulletList
@@ -49,20 +52,21 @@ tau_i = (i - 1/2) / N`}
 
         <RLPanel padding="clamp(18px, 1.5vw, 28px)">
           <Eyebrow>Quantile Bellman target and loss</Eyebrow>
-          <div
-            style={{
-              fontSize: 'clamp(15px, 1.08vw, 20px)',
-              fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Consolas, monospace',
-              lineHeight: 1.75,
-              opacity: 0.94,
-              whiteSpace: 'pre-wrap',
-            }}
-          >
-            {`z_hat_(t,i) = r_t + gamma (1 - d_t) q_(phi,i)(b_(t+1))
-
-L_QR(phi) = (1 / N^2) sum_i sum_j rho_(tau_i)^kappa
-            ( z_hat_(t,j) - q_(phi,i)(b_t) )`}
-          </div>
+          <MathBlock
+            size="clamp(15px, 1vw, 20px)"
+            lines={[
+              <>
+                ẑ<sub>t,i</sub> = r<sub>t</sub> + γ (1 − d<sub>t</sub>) q<sub>φ,i</sub>(b<sub>t+1</sub>)
+              </>,
+              <>
+                L<sub>QR</sub>(φ) = (1 / N<sup>2</sup>) Σ<sub>i</sub> Σ<sub>j</sub> ρ<sub>τ<sub>i</sub></sub>
+                <sup>κ</sup>
+              </>,
+              <>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;( ẑ<sub>t,j</sub> − q<sub>φ,i</sub>(b<sub>t</sub>) )
+              </>,
+            ]}
+          />
 
           <div className="grid grid-cols-3 gap-4" style={{ marginTop: '1rem' }}>
             {[
