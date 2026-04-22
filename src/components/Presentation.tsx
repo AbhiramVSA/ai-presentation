@@ -73,7 +73,8 @@ export default function Presentation({ slides }: PresentationProps) {
   useEffect(() => {
     const onMove = () => resetHideTimer();
     window.addEventListener('mousemove', onMove);
-    resetHideTimer();
+    if (hideTimer.current) clearTimeout(hideTimer.current);
+    hideTimer.current = setTimeout(() => setControlsVisible(false), 3000);
     return () => {
       window.removeEventListener('mousemove', onMove);
       if (hideTimer.current) clearTimeout(hideTimer.current);

@@ -1,75 +1,90 @@
-import VideoBackground from '../../components/VideoBackground';
-import LiquidGlassCard from '../../components/LiquidGlassCard';
+import RLSlideFrame from './RLSlideFrame';
+import { BulletList, MiniTable, RLPanel } from './RLPrimitives';
 
-const contributions = [
-  'A reinforcement learning architecture specifically designed for sales conversation analysis and real-time conversion prediction.',
-  'A hybrid data pipeline combining GPT-5 synthetic generation (70%) with real-world sales conversations from HuggingFace\'s goendalf666/sales-conversations dataset (30%) across multiple industries.',
-  'Novel state representation techniques using OpenAI text-embedding-3-large (3072 dimensions) combined with sales-specific feature engineering.',
-  'A meta-learning approach enabling the system to express calibrated confidence based on conversation similarity to training data (Finn et al., 2017).',
-  'Integration mechanisms providing real-time overlay guidance within CRM platforms (Salesforce, HubSpot) and communication tools (Zoom, Teams).',
-  'Projected evaluation based on RL dialogue policy literature (Henderson et al., 2018) targeting 91–95% prediction accuracy and 35–45% conversion rate uplift.',
+const rows = [
+  [
+    'GPT-5',
+    'general-purpose frontier reasoning model',
+    'no, unless wrapped in an external RL loop',
+    'strong prompted planner or generator',
+  ],
+  [
+    'GPT-5.1',
+    'adaptive reasoning with faster easy-case inference',
+    'no, unless externally trained',
+    'efficient orchestrator or assistant',
+  ],
+  [
+    'Claude Sonnet 4.5',
+    'hybrid reasoning / agentic model',
+    'no, unless externally trained',
+    'long-context assistant inside the loop',
+  ],
+  [
+    'Sales RL Agent',
+    'optimize sales return under dialogue dynamics',
+    'yes',
+    'high-level risk-aware controller',
+  ],
 ];
 
 export default function RLIntroSlide2() {
   return (
-    <div className="relative w-full h-full overflow-hidden bg-black">
-      <VideoBackground src="https://stream.mux.com/Kec29dVyJgiPdtWaQtPuEiiGHkJIYQAVUJcNiIHUYeo.m3u8" />
+    <RLSlideFrame
+      slideNumber="04"
+      section="Comparison Frame"
+      title="Why compare against frontier models at all?"
+      subtitle="Because in 2026 a serious sales-control paper cannot pretend the baseline is only generic ML or old LLM prompting. The correct comparison is structural: prompted frontier models are strong modules, but they are not directly reward-optimized sales policies."
+      footerLabel="Frontier models vs RL controller"
+    >
+      <div className="grid h-full w-full grid-cols-[1.05fr_1.05fr] gap-5">
+        <RLPanel padding="clamp(18px, 1.5vw, 28px)">
+          <MiniTable
+            headers={['Controller', 'Primary objective', 'Online reward learning?', 'Best role']}
+            rows={rows}
+            highlightLast
+          />
+        </RLPanel>
 
-      <div className="relative z-10 flex flex-col w-full h-full" style={{ padding: '4% 5.2%' }}>
-        {/* Header */}
-        <div className="flex items-center justify-between w-full">
-          <span style={{ fontSize: 'clamp(16px, 1.4vw, 28px)', fontWeight: 700 }}>SalesRLAgent</span>
-          <span style={{ fontSize: 'clamp(12px, 1.05vw, 20px)', opacity: 0.8 }}>Reinforcement Learning</span>
-          <span style={{ fontSize: 'clamp(14px, 1.2vw, 24px)', opacity: 0.6, fontWeight: 500 }}>04</span>
-        </div>
+        <div className="flex flex-col gap-5">
+          <RLPanel padding="clamp(18px, 1.5vw, 28px)">
+            <BulletList
+              items={[
+                <span>
+                  A prompted LLM can choose the next move, but it does so from a <strong>frozen inference policy</strong>
+                  , not from a sales-return objective trained against sequential reward.
+                </span>,
+                <span>
+                  The RL controller exposes <strong>return mean, dispersion, and lower-tail risk</strong>; this is the
+                  key mathematical distinction from prompt-only control.
+                </span>,
+                <span>
+                  The best deployment pattern is <strong>RL for control, frontier LLM for language realization</strong>.
+                </span>,
+              ]}
+            />
+          </RLPanel>
 
-        {/* Title */}
-        <div style={{ marginTop: '2%' }}>
-          <h1 style={{ fontSize: 'clamp(28px, 3.5vw, 64px)', fontWeight: 700, letterSpacing: '-0.02em' }}>
-            Introduction
-          </h1>
-          <p style={{ fontSize: 'clamp(13px, 1.05vw, 20px)', opacity: 0.7, marginTop: '0.5%' }}>
-            Key Contributions of SalesRLAgent
-          </p>
-        </div>
-
-        {/* Points */}
-        <div className="flex-1 flex flex-col justify-center" style={{ marginTop: '1%' }}>
-          <LiquidGlassCard style={{ padding: 'clamp(20px, 2.5vw, 48px)' }}>
-            <ul
-              className="list-none"
-              style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(12px, 1.2vw, 24px)' }}
+          <RLPanel padding="clamp(18px, 1.5vw, 28px)">
+            <div
+              style={{
+                fontSize: 'clamp(11px, 0.82vw, 14px)',
+                opacity: 0.58,
+                textTransform: 'uppercase',
+                letterSpacing: '0.12em',
+                marginBottom: '0.8rem',
+              }}
             >
-              {contributions.map((point, i) => (
-                <li key={i} className="flex items-start" style={{ gap: 'clamp(12px, 1vw, 20px)' }}>
-                  <span
-                    className="flex-shrink-0 flex items-center justify-center rounded-full"
-                    style={{
-                      width: 'clamp(26px, 2vw, 36px)',
-                      height: 'clamp(26px, 2vw, 36px)',
-                      background: 'rgba(255,255,255,0.1)',
-                      border: '1px solid rgba(255,255,255,0.15)',
-                      fontSize: 'clamp(11px, 0.8vw, 14px)',
-                      fontWeight: 700,
-                      marginTop: 'clamp(2px, 0.15vw, 4px)',
-                    }}
-                  >
-                    {String(i + 1).padStart(2, '0')}
-                  </span>
-                  <p style={{ fontSize: 'clamp(13px, 1.05vw, 20px)', opacity: 0.9, lineHeight: 1.6 }}>
-                    {point}
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </LiquidGlassCard>
-        </div>
-
-        {/* Footer */}
-        <div className="flex items-center justify-end w-full" style={{ marginTop: '1.5%' }}>
-          <span style={{ fontSize: 'clamp(12px, 1.05vw, 20px)', opacity: 0.6 }}>Introduction (2/2)</span>
+              Practical implication
+            </div>
+            <p style={{ fontSize: 'clamp(13px, 0.98vw, 17px)', opacity: 0.9, lineHeight: 1.6 }}>
+              The claim is not that the Sales RL Agent replaces frontier models. The claim is that it gives the stack
+              something those models do not naturally provide: a directly optimized, risk-sensitive sequential policy for
+              the sales objective.
+            </p>
+          </RLPanel>
         </div>
       </div>
-    </div>
+    </RLSlideFrame>
   );
 }

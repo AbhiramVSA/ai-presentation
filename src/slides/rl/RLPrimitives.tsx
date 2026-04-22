@@ -1,0 +1,168 @@
+import type { ReactNode } from 'react';
+import LiquidGlassCard from '../../components/LiquidGlassCard';
+
+export function RLPanel({
+  children,
+  className = '',
+  padding = 'clamp(14px, 1.3vw, 26px)',
+}: {
+  children: ReactNode;
+  className?: string;
+  padding?: string;
+}) {
+  return (
+    <LiquidGlassCard className={className} style={{ padding }}>
+      {children}
+    </LiquidGlassCard>
+  );
+}
+
+export function Eyebrow({ children }: { children: ReactNode }) {
+  return (
+    <div
+      style={{
+        fontSize: 'clamp(10px, 0.78vw, 14px)',
+        opacity: 0.55,
+        textTransform: 'uppercase',
+        letterSpacing: '0.14em',
+        marginBottom: '0.55rem',
+      }}
+    >
+      {children}
+    </div>
+  );
+}
+
+export function Metric({
+  value,
+  label,
+  accent = '#f3f4f6',
+}: {
+  value: string;
+  label: string;
+  accent?: string;
+}) {
+  return (
+    <div className="flex-1">
+      <div
+        style={{
+          fontSize: 'clamp(18px, 1.7vw, 30px)',
+          fontWeight: 700,
+          lineHeight: 1,
+          color: accent,
+        }}
+      >
+        {value}
+      </div>
+      <div
+        style={{
+          fontSize: 'clamp(10px, 0.82vw, 14px)',
+          opacity: 0.62,
+          marginTop: '0.4rem',
+          lineHeight: 1.35,
+        }}
+      >
+        {label}
+      </div>
+    </div>
+  );
+}
+
+export function BulletList({
+  items,
+  compact = false,
+}: {
+  items: ReactNode[];
+  compact?: boolean;
+}) {
+  return (
+    <ul
+      className="list-none"
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: compact ? 'clamp(8px, 0.7vw, 14px)' : 'clamp(10px, 0.95vw, 18px)',
+      }}
+    >
+      {items.map((item, index) => (
+        <li key={index} className="flex items-start" style={{ gap: '0.8rem' }}>
+          <span
+            style={{
+              width: '0.45rem',
+              height: '0.45rem',
+              borderRadius: '999px',
+              background: 'rgba(255,255,255,0.72)',
+              marginTop: '0.58rem',
+              flexShrink: 0,
+            }}
+          />
+          <div
+            style={{
+              fontSize: compact ? 'clamp(11px, 0.86vw, 15px)' : 'clamp(12px, 0.96vw, 17px)',
+              opacity: 0.9,
+              lineHeight: 1.52,
+            }}
+          >
+            {item}
+          </div>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+export function MiniTable({
+  headers,
+  rows,
+  highlightLast = false,
+}: {
+  headers: string[];
+  rows: string[][];
+  highlightLast?: boolean;
+}) {
+  return (
+    <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+      <thead>
+        <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.14)' }}>
+          {headers.map((header) => (
+            <th
+              key={header}
+              style={{
+                textAlign: 'left',
+                fontSize: 'clamp(10px, 0.76vw, 13px)',
+                opacity: 0.58,
+                paddingBottom: '0.55rem',
+                fontWeight: 600,
+              }}
+            >
+              {header}
+            </th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map((row, rowIndex) => {
+          const highlight = highlightLast && rowIndex === rows.length - 1;
+          return (
+            <tr key={rowIndex} style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+              {row.map((cell, cellIndex) => (
+                <td
+                  key={cellIndex}
+                  style={{
+                    padding: '0.55rem 0',
+                    fontSize: 'clamp(10px, 0.8vw, 14px)',
+                    opacity: highlight ? 1 : 0.84,
+                    fontWeight: highlight ? 700 : 400,
+                    lineHeight: 1.4,
+                  }}
+                >
+                  {cell}
+                </td>
+              ))}
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
+  );
+}

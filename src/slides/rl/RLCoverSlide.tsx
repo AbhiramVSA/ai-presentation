@@ -1,76 +1,91 @@
-import VideoBackground from '../../components/VideoBackground';
+import RLSlideFrame from './RLSlideFrame';
+import { Metric, RLPanel } from './RLPrimitives';
 
 export default function RLCoverSlide() {
   return (
-    <div className="relative w-full h-full overflow-hidden bg-black">
-      <VideoBackground src="https://stream.mux.com/JNJEOYI6B3EffB9f5ZhpGbuxzc6gSyJcXaCBbCgZKRg.m3u8" />
-
-      <div className="relative z-10 flex flex-col w-full h-full" style={{ padding: '4% 5.2%' }}>
-        {/* Header */}
-        <div className="flex items-center justify-between w-full">
-          <span style={{ fontSize: 'clamp(16px, 1.4vw, 28px)', fontWeight: 700, letterSpacing: '-0.01em' }}>
-            SalesRLAgent
-          </span>
-          <span style={{ fontSize: 'clamp(12px, 1.05vw, 20px)', opacity: 0.8 }}>
-            Reinforcement Learning
-          </span>
-        </div>
-
-        {/* Center content */}
-        <div
-          className="flex flex-col items-center justify-center flex-1 text-center"
-          style={{ marginTop: '-3%' }}
-        >
-          <p style={{ fontSize: 'clamp(13px, 1.1vw, 22px)', opacity: 0.6, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '1.5%' }}>
-            Research Paper Presentation
-          </p>
-          <h1
-            style={{
-              fontSize: 'clamp(28px, 4vw, 72px)',
-              fontWeight: 700,
-              letterSpacing: '-0.02em',
-              lineHeight: 1.1,
-              maxWidth: '80%',
-            }}
-          >
-            SalesRLAgent
-          </h1>
-          <p
-            style={{
-              fontSize: 'clamp(14px, 1.4vw, 28px)',
-              opacity: 0.85,
-              marginTop: '1.5%',
-              fontWeight: 500,
-              letterSpacing: '-0.01em',
-              maxWidth: '70%',
-              lineHeight: 1.35,
-            }}
-          >
-            A Reinforcement Learning Approach for Real-Time Sales Conversion Prediction and Optimization
-          </p>
-
-          <div
-            style={{
-              marginTop: '5%',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: 'clamp(4px, 0.4vw, 8px)',
-            }}
-          >
-            <p style={{ fontSize: 'clamp(13px, 1.05vw, 20px)', opacity: 0.7 }}>
-              Abhiram · Shikhar · Ashok
-            </p>
-            <p style={{ fontSize: 'clamp(12px, 0.95vw, 18px)', opacity: 0.5 }}>
-              abhiramvsa7@gmail.com
+    <RLSlideFrame
+      slideNumber="01"
+      section="Research Presentation"
+      title="Risk-Sensitive Distributional Actor-Critic for Sales Dialogue Control"
+      subtitle="A mathematically grounded benchmark against frontier prompted controllers, with reproducible training artifacts and an A100-ready notebook."
+      backgroundSrc="https://stream.mux.com/JNJEOYI6B3EffB9f5ZhpGbuxzc6gSyJcXaCBbCgZKRg.m3u8"
+      footerLabel="Cover"
+      titleWidth="82%"
+      contentStyle={{ display: 'flex', alignItems: 'center' }}
+    >
+      <div className="grid h-full w-full grid-cols-[1.4fr_0.9fr] gap-5">
+        <RLPanel padding="clamp(22px, 2vw, 36px)" className="flex flex-col justify-between">
+          <div>
+            <div
+              style={{
+                fontSize: 'clamp(12px, 0.9vw, 16px)',
+                opacity: 0.56,
+                textTransform: 'uppercase',
+                letterSpacing: '0.16em',
+              }}
+            >
+              Reinforcement Learning for Revenue Workflows
+            </div>
+            <p
+              style={{
+                fontSize: 'clamp(14px, 1.06vw, 19px)',
+                opacity: 0.88,
+                lineHeight: 1.58,
+                marginTop: '1rem',
+                maxWidth: '92%',
+              }}
+            >
+              The paper reframes sales conversations as a partially observed control problem. The key move is to
+              optimize a policy against long-horizon sales return while explicitly modeling downside risk with a
+              quantile critic instead of collapsing all future dialogue outcomes into a single scalar value.
             </p>
           </div>
-        </div>
 
-        {/* Footer */}
-        <div className="flex items-center justify-center w-full">
-          <span style={{ fontSize: 'clamp(12px, 1.05vw, 20px)', opacity: 0.5 }}>01</span>
+          <div className="flex gap-6">
+            <Metric value="POMDP" label="formal problem setup for latent buyer state and noisy observations" />
+            <Metric value="31 Q" label="quantiles in the distributional critic used in the released benchmark" accent="#dbeafe" />
+            <Metric value="A100" label="notebook included for scalable training and checkpointing" accent="#fde68a" />
+          </div>
+        </RLPanel>
+
+        <div className="flex flex-col gap-5">
+          <RLPanel padding="clamp(18px, 1.5vw, 28px)">
+            <div style={{ fontSize: 'clamp(11px, 0.8vw, 14px)', opacity: 0.58, textTransform: 'uppercase', letterSpacing: '0.12em' }}>
+              Authors
+            </div>
+            <div style={{ marginTop: '0.9rem', display: 'flex', flexDirection: 'column', gap: '0.7rem' }}>
+              <div style={{ fontSize: 'clamp(16px, 1.25vw, 24px)', fontWeight: 700 }}>Abhiram Venkat Sai Adabala</div>
+              <div style={{ fontSize: 'clamp(15px, 1.12vw, 21px)', opacity: 0.86 }}>Shikhar Veer</div>
+              <div style={{ fontSize: 'clamp(15px, 1.12vw, 21px)', opacity: 0.86 }}>Ashok Rupalli</div>
+            </div>
+          </RLPanel>
+
+          <RLPanel padding="clamp(18px, 1.5vw, 28px)">
+            <div style={{ fontSize: 'clamp(11px, 0.8vw, 14px)', opacity: 0.58, textTransform: 'uppercase', letterSpacing: '0.12em' }}>
+              Route Scope
+            </div>
+            <div style={{ marginTop: '0.85rem', display: 'grid', gap: '0.7rem' }}>
+              {[
+                'formal mathematical setup',
+                'risk-sensitive policy objective',
+                'architecture and training system',
+                'benchmark results and frontier-model framing',
+              ].map((item) => (
+                <div
+                  key={item}
+                  style={{
+                    fontSize: 'clamp(12px, 0.94vw, 17px)',
+                    opacity: 0.88,
+                    lineHeight: 1.45,
+                  }}
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
+          </RLPanel>
         </div>
       </div>
-    </div>
+    </RLSlideFrame>
   );
 }

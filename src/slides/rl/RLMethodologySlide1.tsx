@@ -1,104 +1,93 @@
-import { Database, Layers, FileText, Cpu, Sparkles } from 'lucide-react';
-import VideoBackground from '../../components/VideoBackground';
-import LiquidGlassCard from '../../components/LiquidGlassCard';
-import type { LucideIcon } from 'lucide-react';
-
-interface StepItem {
-  icon: LucideIcon;
-  label: string;
-  desc: string;
-}
-
-const steps: StepItem[] = [
-  {
-    icon: Sparkles,
-    label: 'Hybrid Data Construction (70/30 Split)',
-    desc: '70% synthetic conversations generated via GPT-5 with designed templates across 15 industries (3–27 turns, balanced outcomes). 30% real-world data sourced from HuggingFace\'s goendalf666/sales-conversations corpus, restructured into turn-level pairs with conversion labels.',
-  },
-  {
-    icon: FileText,
-    label: 'Data Processing Pipeline',
-    desc: 'Text cleaning, entity standardization, conversation segmentation into turns, and feature extraction for semantic content (what was said) and conversational dynamics (how it was said).',
-  },
-  {
-    icon: Layers,
-    label: 'Embedding Generation',
-    desc: 'OpenAI text-embedding-3-large producing 3072-dimensional vectors via API, capturing deep semantic relationships with domain-specific feature engineering layered on top.',
-  },
-  {
-    icon: Database,
-    label: 'State Representation',
-    desc: 'Weighted conversation history embeddings, turn-specific features (speaking time, question density, sentiment), customer engagement signals, and sales technique identification.',
-  },
-  {
-    icon: Cpu,
-    label: 'Training Infrastructure',
-    desc: 'Curriculum learning from simple to complex conversations, adversarial training with counter-examples, ensemble techniques, and specialized batch construction. Estimated training: ~6 hours on CPU.',
-  },
-];
+import RLSlideFrame from './RLSlideFrame';
+import { BulletList, Eyebrow, RLPanel } from './RLPrimitives';
 
 export default function RLMethodologySlide1() {
   return (
-    <div className="relative w-full h-full overflow-hidden bg-black">
-      <VideoBackground src="https://stream.mux.com/fHfa8VIbBdqZelLGg5thjsypZ101M01dbyIMLNDWQwlLA.m3u8" />
+    <RLSlideFrame
+      slideNumber="05"
+      section="Mathematical Core"
+      title="Distributional critic: model the full return geometry, not just its expectation"
+      subtitle="The paper adopts a quantile approximation to the return distribution. This lets the controller reason about the lower tail of dialogue outcomes instead of only a scalar value estimate."
+      backgroundSrc="https://stream.mux.com/Kec29dVyJgiPdtWaQtPuEiiGHkJIYQAVUJcNiIHUYeo.m3u8"
+      footerLabel="Quantile critic"
+    >
+      <div className="grid h-full w-full grid-cols-[0.95fr_1.15fr] gap-5">
+        <RLPanel padding="clamp(18px, 1.5vw, 28px)">
+          <Eyebrow>Return distribution</Eyebrow>
+          <div
+            style={{
+              fontSize: 'clamp(17px, 1.24vw, 24px)',
+              fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Consolas, monospace',
+              lineHeight: 1.7,
+              opacity: 0.92,
+            }}
+          >
+            {`V^pi(b_t) = E[Z^pi(b_t)]
 
-      <div className="relative z-10 flex flex-col w-full h-full" style={{ padding: '4% 5.2%' }}>
-        {/* Header */}
-        <div className="flex items-center justify-between w-full">
-          <span style={{ fontSize: 'clamp(16px, 1.4vw, 28px)', fontWeight: 700 }}>SalesRLAgent</span>
-          <span style={{ fontSize: 'clamp(12px, 1.05vw, 20px)', opacity: 0.8 }}>Reinforcement Learning</span>
-          <span style={{ fontSize: 'clamp(14px, 1.2vw, 24px)', opacity: 0.6, fontWeight: 500 }}>05</span>
-        </div>
+Z^pi_phi(b_t) ~= { q_(phi,i)(b_t) }_(i=1)^N
 
-        {/* Title */}
-        <div style={{ marginTop: '2%' }}>
-          <h1 style={{ fontSize: 'clamp(28px, 3.5vw, 64px)', fontWeight: 700, letterSpacing: '-0.02em' }}>
-            Methodology
-          </h1>
-          <p style={{ fontSize: 'clamp(13px, 1.05vw, 20px)', opacity: 0.7, marginTop: '0.5%' }}>
-            Data Generation, Processing & State Design
-          </p>
-        </div>
+tau_i = (i - 1/2) / N`}
+          </div>
 
-        {/* Step cards */}
-        <div
-          className="flex-1 flex flex-col justify-center"
-          style={{ marginTop: '1.5%', gap: 'clamp(8px, 0.8vw, 14px)' }}
-        >
-          {steps.map((d) => (
-            <LiquidGlassCard
-              key={d.label}
-              style={{ padding: 'clamp(12px, 1.2vw, 22px) clamp(16px, 1.6vw, 28px)' }}
-            >
-              <div className="flex items-start" style={{ gap: 'clamp(14px, 1.2vw, 24px)' }}>
-                <d.icon
-                  style={{
-                    width: 'clamp(22px, 1.8vw, 34px)',
-                    height: 'clamp(22px, 1.8vw, 34px)',
-                    opacity: 0.8,
-                    flexShrink: 0,
-                    marginTop: 'clamp(2px, 0.2vw, 4px)',
-                  }}
-                  strokeWidth={1.5}
-                />
-                <div>
-                  <h3 style={{ fontSize: 'clamp(13px, 1.1vw, 20px)', fontWeight: 700 }}>
-                    {d.label}
-                  </h3>
-                  <p style={{ fontSize: 'clamp(11px, 0.85vw, 16px)', opacity: 0.8, lineHeight: 1.5, marginTop: 'clamp(2px, 0.2vw, 4px)' }}>
-                    {d.desc}
-                  </p>
+          <div style={{ marginTop: '1.1rem' }}>
+            <BulletList
+              compact
+              items={[
+                <span>
+                  <strong>scalar A2C</strong> compresses all future dialogue uncertainty into one number
+                </span>,
+                <span>
+                  <strong>distributional A2C</strong> keeps the quantile structure of possible outcomes
+                </span>,
+                <span>
+                  this enables lower-tail functionals such as <strong>CVaR</strong>
+                </span>,
+              ]}
+            />
+          </div>
+        </RLPanel>
+
+        <RLPanel padding="clamp(18px, 1.5vw, 28px)">
+          <Eyebrow>Quantile Bellman target and loss</Eyebrow>
+          <div
+            style={{
+              fontSize: 'clamp(15px, 1.08vw, 20px)',
+              fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Consolas, monospace',
+              lineHeight: 1.75,
+              opacity: 0.94,
+              whiteSpace: 'pre-wrap',
+            }}
+          >
+            {`z_hat_(t,i) = r_t + gamma (1 - d_t) q_(phi,i)(b_(t+1))
+
+L_QR(phi) = (1 / N^2) sum_i sum_j rho_(tau_i)^kappa
+            ( z_hat_(t,j) - q_(phi,i)(b_t) )`}
+          </div>
+
+          <div className="grid grid-cols-3 gap-4" style={{ marginTop: '1rem' }}>
+            {[
+              ['31 quantiles', 'used in the released benchmark implementation'],
+              ['Huber penalty', 'stabilizes critic learning around noisy targets'],
+              ['bootstrap target', 'propagates long-horizon conversational consequences'],
+            ].map(([head, text]) => (
+              <div
+                key={head}
+                style={{
+                  borderRadius: '14px',
+                  padding: '0.85rem 0.9rem',
+                  background: 'rgba(255,255,255,0.05)',
+                  border: '1px solid rgba(255,255,255,0.08)',
+                }}
+              >
+                <div style={{ fontSize: 'clamp(11px, 0.86vw, 15px)', fontWeight: 700 }}>{head}</div>
+                <div style={{ fontSize: 'clamp(10px, 0.78vw, 13px)', opacity: 0.72, marginTop: '0.35rem', lineHeight: 1.45 }}>
+                  {text}
                 </div>
               </div>
-            </LiquidGlassCard>
-          ))}
-        </div>
-
-        {/* Footer */}
-        <div className="flex items-center justify-end w-full" style={{ marginTop: '1.5%' }}>
-          <span style={{ fontSize: 'clamp(12px, 1.05vw, 20px)', opacity: 0.6 }}>Methodology (1/3)</span>
-        </div>
+            ))}
+          </div>
+        </RLPanel>
       </div>
-    </div>
+    </RLSlideFrame>
   );
 }
