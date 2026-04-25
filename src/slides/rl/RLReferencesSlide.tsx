@@ -3,7 +3,7 @@ import { RLPanel } from './RLPrimitives';
 
 const leftReferences = [
   'Mnih et al. Asynchronous Methods for Deep Reinforcement Learning. ICML, 2016.',
-  'Schulman et al. High-Dimensional Continuous Control Using Generalized Advantage Estimation. arXiv, 2016.',
+  'Schulman et al. High-Dimensional Continuous Control Using Generalized Advantage Estimation. arXiv, 2015.',
   'Bellemare, Dabney, and Munos. A Distributional Perspective on Reinforcement Learning. ICML, 2017.',
   'Dabney et al. Distributional Reinforcement Learning with Quantile Regression. AAAI, 2018.',
 ];

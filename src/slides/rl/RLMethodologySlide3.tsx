@@ -6,7 +6,7 @@ const resultsRows = [
   ['Return std.', '3.488 +/- 0.066', '3.163 +/- 0.091'],
   ['Success rate', '0.507 +/- 0.027', '0.371 +/- 0.026'],
   ['Mean length', '6.599 +/- 0.084', '7.298 +/- 0.135'],
-  ['CVaR_0.1', '-1.465 +/- 0.007', '-1.140 +/- 0.069'],
+  [<>CVaR<sub>0.1</sub></>, '-1.465 +/- 0.007', '-1.140 +/- 0.069'],
 ];
 
 export default function RLMethodologySlide3() {

@@ -9,7 +9,7 @@ const configRows = [
   ['GAE lambda', '0.95', '0.95'],
   ['Learning rate', '3e-4', '2e-4'],
   ['Critic', 'scalar value', '31 quantiles'],
-  ['CVaR alpha', '-', '0.30 train / 0.10 eval'],
+  [<>CVaR α</>, '-', '0.30 train / 0.10 eval'],
 ];
 
 export default function RLExperimentSlide() {
@@ -47,7 +47,7 @@ export default function RLExperimentSlide() {
               items={[
                 <span>mean episode return and return standard deviation</span>,
                 <span>success rate and mean conversation length</span>,
-                <span>CVaR_0.1: average return in the worst 10 percent of episodes</span>,
+                <span>CVaR<sub>0.1</sub>: average return in the worst 10 percent of episodes</span>,
               ]}
             />
           </RLPanel>

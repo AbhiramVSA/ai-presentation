@@ -24,7 +24,7 @@ export default function LiquidGlassCard({ children, className = '', style }: Liq
           background: 'radial-gradient(ellipse at 15% 10%, rgba(255,255,255,0.06), transparent 60%)',
         }}
       />
-      <div className="relative">{children}</div>
+      <div className="relative h-full">{children}</div>
     </div>
   );
 }

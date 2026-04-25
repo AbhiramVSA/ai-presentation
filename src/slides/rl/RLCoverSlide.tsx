@@ -11,40 +11,49 @@ export default function RLCoverSlide() {
       backgroundSrc="https://stream.mux.com/JNJEOYI6B3EffB9f5ZhpGbuxzc6gSyJcXaCBbCgZKRg.m3u8"
       footerLabel="Cover"
       titleWidth="82%"
-      contentStyle={{ display: 'flex', alignItems: 'center' }}
+      contentStyle={{ display: 'flex', alignItems: 'stretch' }}
     >
       <div className="grid h-full w-full grid-cols-[1.4fr_0.9fr] gap-5">
-        <RLPanel padding="clamp(22px, 2vw, 36px)" className="flex flex-col justify-between">
-          <div>
-            <div
-              style={{
-                fontSize: 'clamp(12px, 0.9vw, 16px)',
-                opacity: 0.56,
-                textTransform: 'uppercase',
-                letterSpacing: '0.16em',
-              }}
-            >
-              Reinforcement Learning for Revenue Workflows
+        <RLPanel padding="clamp(26px, 2vw, 34px)" className="h-full">
+          <div style={{ minHeight: '100%', display: 'flex', flexDirection: 'column' }}>
+            <div style={{ maxWidth: '82%' }}>
+              <div
+                style={{
+                  fontSize: 'clamp(11px, 0.78vw, 14px)',
+                  opacity: 0.56,
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.12em',
+                }}
+              >
+                Reinforcement Learning for Revenue Workflows
+              </div>
+              <p
+                style={{
+                  fontSize: 'clamp(13px, 0.92vw, 17px)',
+                  opacity: 0.88,
+                  lineHeight: 1.72,
+                  marginTop: '1.05rem',
+                }}
+              >
+                The paper reframes sales conversations as a partially observed control problem. The key move is to
+                optimize a policy against long-horizon sales return while explicitly modeling downside risk with a
+                quantile critic instead of collapsing all future dialogue outcomes into a single scalar value.
+              </p>
             </div>
-            <p
+
+            <div
+              className="grid grid-cols-3"
               style={{
-                fontSize: 'clamp(14px, 1.06vw, 19px)',
-                opacity: 0.88,
-                lineHeight: 1.58,
-                marginTop: '1rem',
-                maxWidth: '92%',
+                gap: 'clamp(18px, 1.5vw, 28px)',
+                marginTop: 'auto',
+                paddingTop: 'clamp(18px, 1.6vw, 28px)',
+                borderTop: '1px solid rgba(255,255,255,0.12)',
               }}
             >
-              The paper reframes sales conversations as a partially observed control problem. The key move is to
-              optimize a policy against long-horizon sales return while explicitly modeling downside risk with a
-              quantile critic instead of collapsing all future dialogue outcomes into a single scalar value.
-            </p>
-          </div>
-
-          <div className="flex gap-6">
-            <Metric value="POMDP" label="formal problem setup for latent buyer state and noisy observations" />
-            <Metric value="31 Q" label="quantiles in the distributional critic used in the released benchmark" accent="#dbeafe" />
-            <Metric value="A100" label="training scripts included for scalable checkpoints and evaluation" accent="#fde68a" />
+              <Metric value="POMDP" label="formal problem setup for latent buyer state and noisy observations" />
+              <Metric value="31 Q" label="quantiles in the distributional critic used in the released benchmark" accent="#dbeafe" />
+              <Metric value="A100" label="training scripts included for scalable checkpoints and evaluation" accent="#fde68a" />
+            </div>
           </div>
         </RLPanel>
 

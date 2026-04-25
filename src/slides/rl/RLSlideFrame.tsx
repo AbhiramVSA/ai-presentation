@@ -41,7 +41,7 @@ export default function RLSlideFrame({
 
       <div
         className="relative z-10 flex h-full w-full flex-col"
-        style={{ padding: '26px 54px 28px', gap: '14px' }}
+        style={{ padding: '24px 54px 30px', gap: '16px' }}
       >
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
@@ -73,9 +73,9 @@ export default function RLSlideFrame({
         <div style={{ width: titleWidth }}>
           <h1
             style={{
-              fontSize: '42px',
+              fontSize: 'clamp(34px, 2.42vw, 42px)',
               fontWeight: 700,
-              lineHeight: 1.08,
+              lineHeight: 1.1,
               letterSpacing: '0',
             }}
           >
@@ -84,11 +84,11 @@ export default function RLSlideFrame({
           {subtitle ? (
             <p
               style={{
-                fontSize: '15px',
+                fontSize: 'clamp(13px, 0.88vw, 15px)',
                 opacity: 0.72,
-                marginTop: '8px',
-                lineHeight: 1.4,
-                maxWidth: '95%',
+                marginTop: '10px',
+                lineHeight: 1.5,
+                maxWidth: '88%',
               }}
             >
               {subtitle}

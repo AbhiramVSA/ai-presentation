@@ -12,7 +12,7 @@ export default function RLMethodologySlide1() {
       footerLabel="Quantile critic"
     >
       <div className="grid h-full w-full grid-cols-[0.95fr_1.15fr] gap-5">
-        <RLPanel padding="clamp(18px, 1.5vw, 28px)">
+        <RLPanel>
           <Eyebrow>Return distribution</Eyebrow>
           <MathBlock
             size="clamp(18px, 1.18vw, 25px)"
@@ -50,7 +50,7 @@ export default function RLMethodologySlide1() {
           </div>
         </RLPanel>
 
-        <RLPanel padding="clamp(18px, 1.5vw, 28px)">
+        <RLPanel>
           <Eyebrow>Quantile Bellman target and loss</Eyebrow>
           <MathBlock
             size="clamp(15px, 1vw, 20px)"
@@ -77,7 +77,7 @@ export default function RLMethodologySlide1() {
               <div
                 key={head}
                 style={{
-                  borderRadius: '14px',
+                  borderRadius: '8px',
                   padding: '0.85rem 0.9rem',
                   background: 'rgba(255,255,255,0.05)',
                   border: '1px solid rgba(255,255,255,0.08)',

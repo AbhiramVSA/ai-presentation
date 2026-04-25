@@ -12,14 +12,14 @@ export default function RLIntroSlide1() {
       footerLabel="Formalization"
     >
       <div className="grid h-full w-full grid-cols-[1.02fr_1.08fr] gap-5">
-        <RLPanel padding="clamp(18px, 1.5vw, 28px)" className="flex flex-col justify-between">
+        <RLPanel className="flex flex-col justify-between">
           <div>
             <Eyebrow>POMDP formulation</Eyebrow>
             <div
               style={{
                 fontSize: 'clamp(22px, 1.9vw, 34px)',
                 fontWeight: 700,
-                letterSpacing: '-0.03em',
+                letterSpacing: '0',
                 lineHeight: 1.2,
               }}
             >
@@ -80,18 +80,18 @@ export default function RLIntroSlide1() {
 
           <div className="mt-5 grid grid-cols-2 gap-4">
             {[
-              ['ΔI_t', 'information coverage gained from the turn'],
-              ['ΔT_t', 'change in trust induced by the policy'],
-              ['ΔS_t', 'stage progression toward a legitimate close'],
-              ['F_t, O_t', 'fatigue accumulation and objection escalation penalties'],
-              ['r_t^(close)', 'terminal gain or loss at close time'],
-              ['Π_t', 'premature-close penalty that blocks degenerate early closes'],
+              [<>ΔI<sub>t</sub></>, 'information coverage gained from the turn'],
+              [<>ΔT<sub>t</sub></>, 'change in trust induced by the policy'],
+              [<>ΔS<sub>t</sub></>, 'stage progression toward a legitimate close'],
+              [<>F<sub>t</sub>, O<sub>t</sub></>, 'fatigue accumulation and objection escalation penalties'],
+              [<>r<sub>t</sub><sup>(close)</sup></>, 'terminal gain or loss at close time'],
+              [<>Π<sub>t</sub></>, 'premature-close penalty that blocks degenerate early closes'],
             ].map(([term, desc]) => (
               <div
-                key={term}
+                key={String(desc)}
                 style={{
                   padding: '0.8rem 0.9rem',
-                  borderRadius: '14px',
+                  borderRadius: '8px',
                   background: 'rgba(255,255,255,0.05)',
                   border: '1px solid rgba(255,255,255,0.08)',
                 }}
