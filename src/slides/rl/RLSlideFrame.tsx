@@ -102,7 +102,7 @@ export default function RLSlideFrame({
 
         <div className="flex items-center justify-between">
           <span style={{ fontSize: '12px', opacity: 0.44 }}>
-            Abhiram Venkat Sai Adabala · Shikhar Veer · Ashok Rupalli
+            Abhiram Venkat Sai Adabala · Shikhar Veeramachineni · Ashok Jupally
           </span>
           <span style={{ fontSize: '12px', opacity: 0.56 }}>
             {footerLabel ?? section}

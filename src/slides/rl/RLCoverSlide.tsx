@@ -55,8 +55,8 @@ export default function RLCoverSlide() {
             </div>
             <div style={{ marginTop: '0.9rem', display: 'flex', flexDirection: 'column', gap: '0.7rem' }}>
               <div style={{ fontSize: 'clamp(16px, 1.25vw, 24px)', fontWeight: 700 }}>Abhiram Venkat Sai Adabala</div>
-              <div style={{ fontSize: 'clamp(15px, 1.12vw, 21px)', opacity: 0.86 }}>Shikhar Veer</div>
-              <div style={{ fontSize: 'clamp(15px, 1.12vw, 21px)', opacity: 0.86 }}>Ashok Rupalli</div>
+              <div style={{ fontSize: 'clamp(15px, 1.12vw, 21px)', opacity: 0.86 }}>Shikhar Veeramachineni</div>
+              <div style={{ fontSize: 'clamp(15px, 1.12vw, 21px)', opacity: 0.86 }}>Ashok Jupally</div>
             </div>
           </RLPanel>
 
