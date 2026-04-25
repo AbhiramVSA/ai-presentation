@@ -6,7 +6,13 @@ interface PresentationProps {
 }
 
 export default function Presentation({ slides }: PresentationProps) {
-  const [current, setCurrent] = useState(0);
+  const initialSlide = (() => {
+    const raw = new URLSearchParams(window.location.search).get('slide');
+    const parsed = raw ? Number.parseInt(raw, 10) : 1;
+    return Number.isFinite(parsed) ? Math.min(Math.max(parsed - 1, 0), slides.length - 1) : 0;
+  })();
+
+  const [current, setCurrent] = useState(initialSlide);
   const [direction, setDirection] = useState<'next' | 'prev'>('next');
   const [transitioning, setTransitioning] = useState(false);
   const [controlsVisible, setControlsVisible] = useState(true);

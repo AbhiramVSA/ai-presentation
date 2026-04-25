@@ -35,45 +35,48 @@ export default function RLSlideFrame({
         className="absolute inset-0"
         style={{
           background:
-            'linear-gradient(135deg, rgba(3,10,20,0.76), rgba(9,16,32,0.66) 36%, rgba(28,9,20,0.58) 100%)',
+            'linear-gradient(135deg, rgba(3,10,20,0.86), rgba(9,16,32,0.78) 40%, rgba(26,10,22,0.72) 100%)',
         }}
       />
 
-      <div className="relative z-10 flex h-full w-full flex-col" style={{ padding: '3.8% 5.1%' }}>
+      <div
+        className="relative z-10 flex h-full w-full flex-col"
+        style={{ padding: '26px 54px 28px', gap: '14px' }}
+      >
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
             <span
               style={{
-                fontSize: 'clamp(16px, 1.35vw, 26px)',
+                fontSize: '22px',
                 fontWeight: 700,
-                letterSpacing: '-0.02em',
+                letterSpacing: '0',
               }}
             >
               SalesRLAgent
             </span>
             <span
               style={{
-                fontSize: 'clamp(10px, 0.82vw, 15px)',
+                fontSize: '12px',
                 opacity: 0.58,
                 textTransform: 'uppercase',
-                letterSpacing: '0.14em',
+                letterSpacing: '0',
               }}
             >
               {section}
             </span>
           </div>
-          <span style={{ fontSize: 'clamp(14px, 1.1vw, 22px)', opacity: 0.6, fontWeight: 600 }}>
+          <span style={{ fontSize: '18px', opacity: 0.6, fontWeight: 600 }}>
             {slideNumber}
           </span>
         </div>
 
-        <div style={{ marginTop: '1.5%', width: titleWidth }}>
+        <div style={{ width: titleWidth }}>
           <h1
             style={{
-              fontSize: 'clamp(28px, 3.2vw, 60px)',
+              fontSize: '42px',
               fontWeight: 700,
-              lineHeight: 1.04,
-              letterSpacing: '-0.03em',
+              lineHeight: 1.08,
+              letterSpacing: '0',
             }}
           >
             {title}
@@ -81,9 +84,9 @@ export default function RLSlideFrame({
           {subtitle ? (
             <p
               style={{
-                fontSize: 'clamp(12px, 1vw, 18px)',
+                fontSize: '15px',
                 opacity: 0.72,
-                marginTop: '0.7%',
+                marginTop: '8px',
                 lineHeight: 1.4,
                 maxWidth: '95%',
               }}
@@ -93,15 +96,15 @@ export default function RLSlideFrame({
           ) : null}
         </div>
 
-        <div className="flex-1" style={{ marginTop: '1.6%', ...contentStyle }}>
+        <div className="min-h-0 flex-1" style={contentStyle}>
           {children}
         </div>
 
-        <div className="flex items-center justify-between" style={{ marginTop: '1.2%' }}>
-          <span style={{ fontSize: 'clamp(11px, 0.85vw, 16px)', opacity: 0.44 }}>
+        <div className="flex items-center justify-between">
+          <span style={{ fontSize: '12px', opacity: 0.44 }}>
             Abhiram Venkat Sai Adabala · Shikhar Veer · Ashok Rupalli
           </span>
-          <span style={{ fontSize: 'clamp(11px, 0.85vw, 16px)', opacity: 0.56 }}>
+          <span style={{ fontSize: '12px', opacity: 0.56 }}>
             {footerLabel ?? section}
           </span>
         </div>

@@ -6,8 +6,10 @@ import RLIntroSlide2 from './slides/rl/RLIntroSlide2';
 import RLMethodologySlide1 from './slides/rl/RLMethodologySlide1';
 import RLMethodologySlide2 from './slides/rl/RLMethodologySlide2';
 import RLMethodologySlide3 from './slides/rl/RLMethodologySlide3';
+import RLArchitectureSlide from './slides/rl/RLArchitectureSlide';
+import RLExperimentSlide from './slides/rl/RLExperimentSlide';
 import RLDeploymentSlide from './slides/rl/RLDeploymentSlide';
-import RLLimitationsSlide from './slides/rl/RLLimitationsSlide';
+import RLConclusionSlide from './slides/rl/RLConclusionSlide';
 import RLReferencesSlide from './slides/rl/RLReferencesSlide';
 
 export default function RLApp() {
@@ -20,9 +22,11 @@ export default function RLApp() {
         <RLIntroSlide2 />,
         <RLMethodologySlide1 />,
         <RLMethodologySlide2 />,
+        <RLArchitectureSlide />,
+        <RLExperimentSlide />,
         <RLMethodologySlide3 />,
         <RLDeploymentSlide />,
-        <RLLimitationsSlide />,
+        <RLConclusionSlide />,
         <RLReferencesSlide />,
       ]}
     />

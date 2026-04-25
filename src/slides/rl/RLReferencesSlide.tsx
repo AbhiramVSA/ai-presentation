@@ -53,7 +53,7 @@ function RefColumn({ title, items }: { title: string; items: string[] }) {
 export default function RLReferencesSlide() {
   return (
     <RLSlideFrame
-      slideNumber="10"
+      slideNumber="12"
       section="References"
       title="Research and model references"
       subtitle="The route now mirrors the revised paper rather than the earlier speculative presentation. These are the core references behind the mathematical formulation and the frontier-model positioning."

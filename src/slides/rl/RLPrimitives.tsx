@@ -4,7 +4,7 @@ import LiquidGlassCard from '../../components/LiquidGlassCard';
 export function RLPanel({
   children,
   className = '',
-  padding = 'clamp(14px, 1.3vw, 26px)',
+  padding = '18px',
 }: {
   children: ReactNode;
   className?: string;
@@ -24,7 +24,7 @@ export function Eyebrow({ children }: { children: ReactNode }) {
         fontSize: 'clamp(10px, 0.78vw, 14px)',
         opacity: 0.55,
         textTransform: 'uppercase',
-        letterSpacing: '0.14em',
+        letterSpacing: '0',
         marginBottom: '0.55rem',
       }}
     >
@@ -46,7 +46,7 @@ export function Metric({
     <div className="flex-1">
       <div
         style={{
-          fontSize: 'clamp(18px, 1.7vw, 30px)',
+          fontSize: '24px',
           fontWeight: 700,
           lineHeight: 1,
           color: accent,
@@ -56,7 +56,7 @@ export function Metric({
       </div>
       <div
         style={{
-          fontSize: 'clamp(10px, 0.82vw, 14px)',
+          fontSize: '12px',
           opacity: 0.62,
           marginTop: '0.4rem',
           lineHeight: 1.35,
@@ -98,7 +98,7 @@ export function BulletList({
           />
           <div
             style={{
-              fontSize: compact ? 'clamp(11px, 0.86vw, 15px)' : 'clamp(12px, 0.96vw, 17px)',
+              fontSize: compact ? '12px' : '14px',
               opacity: 0.9,
               lineHeight: 1.52,
             }}
@@ -129,7 +129,7 @@ export function MiniTable({
               key={header}
               style={{
                 textAlign: 'left',
-                fontSize: 'clamp(10px, 0.76vw, 13px)',
+                fontSize: '12px',
                 opacity: 0.58,
                 paddingBottom: '0.55rem',
                 fontWeight: 600,
@@ -150,7 +150,7 @@ export function MiniTable({
                   key={cellIndex}
                   style={{
                     padding: '0.55rem 0',
-                    fontSize: 'clamp(10px, 0.8vw, 14px)',
+                    fontSize: '12px',
                     opacity: highlight ? 1 : 0.84,
                     fontWeight: highlight ? 700 : 400,
                     lineHeight: 1.4,
@@ -169,7 +169,7 @@ export function MiniTable({
 
 export function MathBlock({
   lines,
-  size = 'clamp(16px, 1.08vw, 22px)',
+  size = '18px',
   gap = '0.5rem',
 }: {
   lines: ReactNode[];
@@ -185,7 +185,7 @@ export function MathBlock({
         fontSize: size,
         fontFamily: '"Cambria Math", "STIX Two Math", "Times New Roman", serif',
         lineHeight: 1.5,
-        letterSpacing: '-0.01em',
+        letterSpacing: '0',
         opacity: 0.95,
       }}
     >
@@ -194,7 +194,8 @@ export function MathBlock({
           key={index}
           style={{
             minHeight: '1.2em',
-            whiteSpace: 'nowrap',
+            whiteSpace: 'normal',
+            overflowWrap: 'anywhere',
           }}
         >
           {line}

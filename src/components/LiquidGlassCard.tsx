@@ -9,12 +9,12 @@ interface LiquidGlassCardProps {
 export default function LiquidGlassCard({ children, className = '', style }: LiquidGlassCardProps) {
   return (
     <div
-      className={`relative overflow-hidden rounded-2xl ${className}`}
+      className={`relative overflow-hidden rounded-lg ${className}`}
       style={{
-        backdropFilter: 'blur(24px) saturate(1.4)',
-        WebkitBackdropFilter: 'blur(24px) saturate(1.4)',
-        background: 'linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03))',
-        border: '1px solid rgba(255,255,255,0.12)',
+        backdropFilter: 'blur(20px) saturate(1.3)',
+        WebkitBackdropFilter: 'blur(20px) saturate(1.3)',
+        background: 'linear-gradient(135deg, rgba(16,24,43,0.82), rgba(13,14,29,0.74))',
+        border: '1px solid rgba(255,255,255,0.14)',
         ...style,
       }}
     >
